@@ -1,0 +1,322 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: url("../../Climate_Change_Background.jpg") no-repeat fixed center;
+    background-size: cover;
+}
+
+header {
+    font-family: 'Cinzel', serif;
+    font-size: 1.875rem;
+    width: 100%;
+    padding: 1rem;
+    text-align: center;
+}
+
+.name {
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    width: 50%;
+    position: relative;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+}
+
+main {
+    font-size: 1.875rem;
+    width: 100%;
+    text-align: center;
+    margin: 2rem auto 2rem auto;
+}
+
+.description {
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    width: 50rem;
+    position: relative;
+    margin-right: auto;
+    margin-left: auto;
+    font-size: 1rem;
+    padding: .5rem;
+    font-family: Helvetica, sans-serif;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+.search-city {
+    background-color: black;
+    border-radius: 5rem;
+    color: white;
+    padding: 0.625rem 1.25rem;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1rem;
+    transition-duration: 0.4s;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+    cursor: pointer;
+    position: relative;
+    top: 1rem;
+}
+
+.city {
+    font-size: 2rem;
+    text-align: center;
+}
+
+.submit {
+    background-color: black;
+    border-radius: 5rem;
+    color: white;
+    padding: 0.625rem 1.25rem;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1rem;
+    transition-duration: 0.4s;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1rem;
+    cursor: pointer;
+    position: relative;
+    top: .5rem;
+}
+
+.submit:hover {
+    background-color: white;
+    color: black;
+}
+
+#map {
+    width: 75%;
+    height: 500px;
+    margin-top: 4rem;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: grey;
+  }
+
+.tempModal {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+
+.tempContent {
+    width: 50rem;
+    height: 30rem;
+    background-color: black;
+    border-radius: 4rem;
+    text-align: center;
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    top: 0;
+    right: 1.5rem;
+    font-size: 4rem;
+    transform: rotate(45deg);
+    cursor: pointer;
+    color: white;
+    z-index: +1;
+}
+
+.tempTextContainer p {
+    position: relative;
+    top: 1rem;
+    font-size: 2rem;
+    text-align: center;
+    color: white;
+    line-height: 1.25em;
+}
+
+.modalCity {
+    width: 5rem;
+    color: red;
+}
+
+/* LOADER 2 */
+.loader-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+}
+.loader{
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    position: relative;
+    margin: 0 auto;
+}
+
+#loader-2 span{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    background-color: #3498db;
+    margin: 35px 5px;
+  }
+  
+  #loader-2 span:nth-child(1){
+    animation: bounce 1s ease-in-out infinite;
+  }
+  
+  #loader-2 span:nth-child(2){
+    animation: bounce 1s ease-in-out 0.33s infinite;
+  }
+  
+  #loader-2 span:nth-child(3){
+    animation: bounce 1s ease-in-out 0.66s infinite;
+  }
+  
+  @keyframes bounce{
+    0%, 75%, 100%{
+      -webkit-transform: translateY(0);
+      -ms-transform: translateY(0);
+      -o-transform: translateY(0);
+      transform: translateY(0);
+    }
+  
+    25%{
+      -webkit-transform: translateY(-20px);
+      -ms-transform: translateY(-20px);
+      -o-transform: translateY(-20px);
+      transform: translateY(-20px);
+    }
+  }
+
+@media screen and (min-width: 768px) and (max-width: 1060px) {
+
+    header {
+        width: 100%;
+        font-size: 1.7rem;
+        position: relative;
+        left: 1rem;
+    }
+
+    .name {
+        width: 85%;
+    }
+    
+    .description {
+        width: 45rem;
+        position: relative;
+        left: .5rem;
+    }
+
+    #map {
+        width: 100%;
+        height: 500px;
+        position: relative;
+        left: .5rem;
+      }
+
+}
+
+
+@media screen and (min-width: 768px) and (max-width: 1385px) {
+
+    #map {
+        width: 80%;
+        height: 500px;
+        position: relative;
+        bottom: 3rem;
+      }
+
+}
+
+
+@media screen and (min-width: 374px) and (max-width: 767px) {
+
+    header {
+        width: 50%;
+        font-size: 1.3rem;
+        position: relative;
+        left: 1rem;
+    }
+
+    .name {
+        width: 200%;
+    }
+    
+    .description {
+        width: 30rem;
+        position: relative;
+        left: 0rem;
+    }
+
+    .search-city {
+        position: relative;
+        left: 0%;
+    }
+
+    .submit {
+        position: relative;
+        left: 0%;
+    }
+
+    #map {
+        width: 80%;
+        height: 500px;
+        position: relative;
+        left: 0rem;
+      }
+
+}
+
+
+@media screen and (min-width: 1px) and (max-width: 373px) {
+
+    header {
+        width: 90%;
+        font-size: 1.3rem;
+        position: relative;
+        left: .5rem;
+    }
+
+    .name {
+        width: 200%;
+    }
+    
+    .description {
+        width: 35rem;
+        position: relative;
+        left: 0rem;
+    }
+
+    .search-city {
+        position: relative;
+        left: 30%;
+    }
+
+    .submit {
+        position: relative;
+        left: 35%;
+    }
+
+    #map {
+        width: 160%;
+        height: 500px;
+        position: relative;
+        left: 1.5rem;
+      }
+      
+}

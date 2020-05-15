@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content="Bluebeam" />
+    <title>Bluebeam_Licensing_App</title>
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+  </head>
+
+  <body>
+    <div class="container py-5">
+      <div class="row">
+        <div class="col">
+          <h1 class="pb-5">Upgrade to the latest version of Revu</h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-7">
+          <p>
+            Enter your license information below and we’ll check to see if that
+            license is eligible for a free upgrade to the latest version of
+            Revu.
+          </p>
+          <form>
+            <div class="form-group">
+              <label
+                for="testSerialNumber"
+                name="serialNumber"
+                class="font-weight-bold"
+                >Serial Number</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="testSerialNumber"
+                placeholder="Enter Serial Number"
+              />
+              <small id="emailHelp" class="form-text text-muted"
+                >Upgrades for Open Licenses (serial numbers starting with
+                96XXXXX) can be accessed in the Gateway. Once you log in, you'll
+                automatically be issued a key for the latest version.</small
+              >
+            </div>
+            <div class="form-group">
+              <label
+                for="testProductKey"
+                name="productKey"
+                class="font-weight-bold"
+                >Product Key</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="testProductKey"
+                placeholder="Enter Product Key"
+              />
+            </div>
+            <div class="form-group">
+              <label for="testEmail" name="email" class="font-weight-bold"
+                >Primary Contact Email</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="testEmail"
+                placeholder="Enter Primary Contact Email"
+              />
+            </div>
+            <button
+              onsubmit="login(e)"
+              type="submit"
+              class="btn btn-primary btn-outline-primary"
+            >
+              Check Eligibility
+            </button>
+          </form>
+        </div>
+        <div class="col">
+          <div class="border border-dark p-4">
+            <h3>Am I eligible for a free upgrade?</h3>
+            <p>
+              You're eligible for a free upgrade to the latest version of Revu
+              if any of following applies:
+            </p>
+            <ul>
+              <li>Your license has active Maintenance</li>
+              <li>
+                Your license was purchased within 30 days of a major release
+              </li>
+            </ul>
+            <small class="text-muted"
+              >Contact us if you have any questions.</small
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="assets/js/lib/jquery-3.4.1.min.js"></script>
+    <script src="assets/js/api.js"></script>
+  </body>
+</html>
