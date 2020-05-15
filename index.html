@@ -40,6 +40,7 @@
                 class="form-control"
                 id="testSerialNumber"
                 placeholder="Enter Serial Number"
+                required
               />
               <small id="emailHelp" class="form-text text-muted"
                 >Upgrades for Open Licenses (serial numbers starting with
@@ -59,6 +60,7 @@
                 class="form-control"
                 id="testProductKey"
                 placeholder="Enter Product Key"
+                required
               />
             </div>
             <div class="form-group">
@@ -70,17 +72,23 @@
                 class="form-control"
                 id="testEmail"
                 placeholder="Enter Primary Contact Email"
+                required
               />
+              <small id="emailHelp" class="form-text text-muted"
+                >Enter the email address that was used to buy your seat of Revu,
+                which can be found in your license certificate email.</small
+              >
             </div>
             <button
               onsubmit="login(e)"
               type="submit"
-              class="btn btn-primary btn-outline-primary"
+              class="btn btn-outline-primary"
             >
               Check Eligibility
             </button>
           </form>
         </div>
+        <!-- Initial upgrade view -->
         <div class="col">
           <div class="border border-dark p-4">
             <h3>Am I eligible for a free upgrade?</h3>
@@ -98,11 +106,61 @@
               >Contact us if you have any questions.</small
             >
           </div>
+<!-- Successful upgrade view -->
+        <div class="success">
+          <div class="border border-dark p-4">
+              <h3>You're eligible for a free upgrade.</h3>
+                <p>
+                  Check to see if your device is <a href="">compatible</a> with this version. Here's what will happen once you confirm your upgrade.
+                </p>
+                <ol>
+                  <li>We'll create a new license with a unique serial number. This will be sent in a license certifictae email to <strong>bchung@bluebeam.com</strong>.</li>
+                  <li>
+                    All <strong>25</strong> seats on license <strong>#1491322</strong> will be moved to the new serial number. Please install at your earliest convenience. Users can continue working in Revu until you install this new version. 
+                  </li>
+                </ol>
+                <button
+                onsubmit="login(e)"
+                type="submit"
+                class="btn btn-outline-primary"
+              >
+                Sounds Great! Upgrade My License. 
+              </button>
+              <div class='upgrade-license-details'>
+                <div class="border border-dark p-4">
+                    <h3>YOUR LICENSE DETAILS</h3>
+                    <h2>Bluebeam Revu 2018 eXtreme</h2>
+                      <ul>
+                        <li>Serial Number: XXX</li>
+                        <li>Serial Number: XXX</li>
+                        <li>Serial Number: XXX</li>
+                        <li>Serial Number: XXX</li>
+                        <li>Serial Number: XXX</li>
+                        <li>Serial Number: XXX</li>
+                        <li>Serial Number: XXX</li>
+                        <li>Serial Number: XXX</li>
+                      </ol>
+              </div>
+        </div>
+<!-- Failed upgrade view -->
+        <div class="fail">
+          <div class="border border-dark p-4">
+              <h3>You're eligible for a free upgrade.</h3>
+              <p>
+                Check to see if your device is <a href="">compatible</a> with this version. Here's what will happen once you confirm your upgrade.
+              </p>
+              <ol>
+                <li>Your license has active Maintenance</li>
+                <li>
+                  Your license was purchased within 30 days of a major release
+                </li>
+              </ol>
+              <small class="text-muted"
+                >Contact us if you have any questions.</small
+              >
         </div>
       </div>
     </div>
-
-    <script src="assets/js/lib/jquery-3.4.1.min.js"></script>
     <script src="assets/js/api.js"></script>
   </body>
 </html>
