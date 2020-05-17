@@ -11,5 +11,14 @@
   "license": "ISC",
   "dependencies": {
     "http-server": "^0.12.3"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jahpe777/Bluebeam_Take_Home.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jahpe777/Bluebeam_Take_Home/issues"
+  },
+  "homepage": "https://github.com/jahpe777/Bluebeam_Take_Home#readme"
 }

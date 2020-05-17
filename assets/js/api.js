@@ -1,8 +1,4 @@
-let success = `<h1>Sucess</h1>`;
-
-let fail = `<h1>Fail</h1>`;
-
-function login(e) {
+function login() {
   fetch(`http://www.mocky.io/v2/5dea8af93000001d442b09cd`, {
     method: 'get',
     headers: {
@@ -11,51 +7,57 @@ function login(e) {
   })
     .then(res => res.json())
     .then(data => {
-      let serialNumber = e.target.serialNumber.value;
-      let productKey = e.target.password.value;
-      let email = e.target.email.value;
+      let serialNumberInput = document.getElementById('testSerialNumber').value;
+      let integer = parseInt(serialNumberInput, 10);
+
+      let productKeyInput = document.getElementById('testProductKey').value;
+      let emailInput = document.getElementById('testEmail').value;
 
       let result = data.filter(item => {
+        console.log(item.serialNumber, integer);
+        console.log(item.productKey, productKeyInput);
+        console.log(item.email, emailInput);
+        console.log(item.isUpgradeable);
         return (
-          item.serialNumber === serialNumber &&
-          item.productKey === productKey &&
-          item.email === email
+          item.serialNumber === integer &&
+          item.productKey === productKeyInput &&
+          item.email === emailInput &&
+          item.isUpgradeable === true
         );
       });
       if (result.length) {
-        $('.col').hide();
-      } else {
-        console.error('This is not valid');
+        // successDisplay();
+        console.log('success');
+      } else if (
+        item.serialNumber === integer &&
+        item.productKey === productKeyInput &&
+        item.email === emailInput &&
+        item.isUpgradeable === false
+      ) {
+        console.log('failed');
       }
     });
 }
-login();
 
-function postSuccess(e) {
-  fetch(`http://www.mocky.io/v2/5dea8af93000001d442b09cd`, {
-    method: 'post',
-    headers: {
-      'Content-Type': 'application/json'
-    }
-  });
-  // .then(res => res.json())
-  // .then(data => {
-  //   let serialNumber = e.target.serialNumber.value;
-  //   let productKey = e.target.password.value;
-  //   let email = e.target.email.value;
+//run submit via click
+document.getElementById('initialSubmit').addEventListener('click', login);
 
-  //   let result = data.filter(item => {
-  //     return (
-  //       item.serialNumber === serialNumber &&
-  //       item.productKey === productKey &&
-  //       item.email === email
-  //     );
-  //   });
-  //   if (result.length) {
-  //     $('.col').hide();
-  //   } else {
-  //     console.error('This is not valid');
-  //   }
-  // });
+//run success
+function successDisplay() {
+  let success = document.getElementById('#success');
+  if (success.style.display === 'none') {
+    success.style.display = 'block';
+  } else {
+    success.style.display = 'none';
+  }
 }
-postSuccess();
+
+//run failed
+function failedDisplay() {
+  let failed = document.getElementById('#failed');
+  if (failed.style.display === 'none') {
+    failed.style.display = 'block';
+  } else {
+    failed.style.display = 'none';
+  }
+}
