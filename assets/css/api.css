@@ -2,14 +2,14 @@
   display: block;
 }
 
-#success {
+#upgrade {
   display: none;
 }
 
-#failure {
+#noUpgrade {
   display: none;
 }
 
-#notFound {
+#noLicense {
   display: none;
 }

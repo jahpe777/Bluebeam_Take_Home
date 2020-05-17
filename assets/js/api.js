@@ -14,27 +14,18 @@ function login() {
       let emailInput = document.getElementById('testEmail').value;
 
       let result = data.filter(item => {
-        console.log(item.serialNumber, integer);
-        console.log(item.productKey, productKeyInput);
-        console.log(item.email, emailInput);
-        console.log(item.isUpgradeable);
         return (
           item.serialNumber === integer &&
           item.productKey === productKeyInput &&
-          item.email === emailInput &&
-          item.isUpgradeable === true
+          item.email === emailInput
         );
       });
-      if (result.length) {
-        // successDisplay();
+      if (result.length && result[0].isUpgradeable === true) {
         console.log('success');
-      } else if (
-        item.serialNumber === integer &&
-        item.productKey === productKeyInput &&
-        item.email === emailInput &&
-        item.isUpgradeable === false
-      ) {
-        console.log('failed');
+      } else if (result.length && result[0].isUpgradeable === false) {
+        console.log('not upgradeable');
+      } else {
+        console.log('not found');
       }
     });
 }
@@ -42,22 +33,32 @@ function login() {
 //run submit via click
 document.getElementById('initialSubmit').addEventListener('click', login);
 
-//run success
-function successDisplay() {
-  let success = document.getElementById('#success');
-  if (success.style.display === 'none') {
-    success.style.display = 'block';
+//run upgrade
+function upgradeDisplay() {
+  let upgrade = document.getElementById('#upgrade');
+  if (upgrade.style.display === 'none') {
+    upgrade.style.display = 'block';
   } else {
-    success.style.display = 'none';
+    upgrade.style.display = 'none';
+  }
+}
+
+//run not
+function notUpgradeableDisplay() {
+  let notUpgradeable = document.getElementById('#noUpgrade');
+  if (notUpgradeable.style.display === 'none') {
+    notUpgradeable.style.display = 'block';
+  } else {
+    notUpgradeable.style.display = 'none';
   }
 }
 
 //run failed
-function failedDisplay() {
-  let failed = document.getElementById('#failed');
-  if (failed.style.display === 'none') {
-    failed.style.display = 'block';
+function notFoundDisplay() {
+  let notFound = document.getElementById('#noLicense');
+  if (notFound.style.display === 'none') {
+    notFound.style.display = 'block';
   } else {
-    failed.style.display = 'none';
+    notFound.style.display = 'none';
   }
 }
