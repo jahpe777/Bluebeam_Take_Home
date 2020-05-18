@@ -1,0 +1,22 @@
+.bg-lightblue {
+  background-color: rgb(238, 250, 255);
+}
+
+.largeFont {
+  font-size: 26px;
+  font-weight: 900;
+}
+
+.textLicense {
+  color: blue;
+  font-size: 12px;
+}
+
+.textBluebeam {
+  font-size: 16px;
+}
+
+.listItems {
+  list-style: none;
+  font-size: 12px;
+}

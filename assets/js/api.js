@@ -34,6 +34,64 @@ function notFoundDisplay() {
   }
 }
 
+function successfulLicenseDetails(result) {
+  document.getElementById(
+    'serialNumberDataSuccess'
+  ).innerHTML = `Serial Number: ${result[0].serialNumber}`;
+  document.getElementById(
+    'productKeyDataSuccess'
+  ).innerHTML = `Product Key: ${result[0].productKey}`;
+  document.getElementById(
+    'regesteredEmailDataSuccess'
+  ).innerHTML = `Registered Email: ${result[0].email}`;
+  document.getElementById(
+    'seatsAvailableDataSuccess'
+  ).innerHTML = `Total Seats Available: ${result[0].totalSeats}`;
+  document.getElementById(
+    'seatsInstalledDataSuccess'
+  ).innerHTML = `Total Seats Installed: ${result[0].totalSeatsInstalled}`;
+  document.getElementById(
+    'seatsEligibleDataSuccess'
+  ).innerHTML = `Total Seats Eligible for Upgrade: ${result[0].totalSeatsEligible}`;
+  document.getElementById(
+    'maintenanceDataSuccess'
+  ).innerHTML = `Maintenance: ${result[0].maintenance}`;
+  document.getElementById(
+    'expirationDateDataSuccess'
+  ).innerHTML = `Expiration Date: ${result[0].dateRegistered}`;
+}
+
+function failedLicenseDetails(result) {
+  document.getElementById(
+    'serialNumberDataFailed'
+  ).innerHTML = `Serial Number: ${result[0].serialNumber}`;
+  document.getElementById(
+    'productKeyDataFailed'
+  ).innerHTML = `Product Key: ${result[0].productKey}`;
+  document.getElementById(
+    'regesteredEmailDataFailed'
+  ).innerHTML = `Registered Email: ${result[0].email}`;
+  document.getElementById(
+    'seatsAvailableDataFailed'
+  ).innerHTML = `Total Seats Available: ${result[0].totalSeats}`;
+  document.getElementById(
+    'seatsInstalledDataFailed'
+  ).innerHTML = `Total Seats Installed: ${result[0].totalSeatsInstalled}`;
+  document.getElementById(
+    'seatsEligibleDataFailed'
+  ).innerHTML = `Total Seats Eligible for Upgrade: ${result[0].totalSeatsEligible}`;
+  document.getElementById(
+    'maintenanceDataFailed'
+  ).innerHTML = `Maintenance: ${result[0].maintenance}`;
+  document.getElementById(
+    'expirationDateDataFailed'
+  ).innerHTML = `Expiration Date: ${result[0].dateRegistered}`;
+}
+
+// function formatDate(value) {
+//   return value.getMonth() + 1 + '/' + value.getDate() + '/' + value.getYear();
+// }
+
 // verifying upgrade
 function login() {
   fetch(`http://www.mocky.io/v2/5dea8af93000001d442b09cd`, {
@@ -58,13 +116,16 @@ function login() {
         );
       });
       if (result.length && result[0].isUpgradeable === true) {
-        console.log('success');
+        //upgrade display
         upgradeDisplay();
+        //update successful license details
+        successfulLicenseDetails(result);
       } else if (result.length && result[0].isUpgradeable === false) {
-        console.log('not upgradeable');
+        //not upgrade display
         notUpgradeableDisplay();
+        //update failed license details
+        failedLicenseDetails(result);
       } else {
-        console.log('not found');
         notFoundDisplay();
       }
     });
@@ -72,3 +133,9 @@ function login() {
 
 //run submit via click
 document.getElementById('initialSubmit').addEventListener('click', login);
+// //reset form
+// document.getElementById('initialSubmit').addEventListener('click', resetForm);
+
+// function resetForm() {
+//   document.getElementById('submitForm').reset();
+// }

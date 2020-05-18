@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width" />
     <meta name="description" content="Bluebeam" />
     <title>Bluebeam_Licensing_App</title>
+    <link href="assets/css/api.css" rel="stylesheet" type="text/css" />
     <link
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
       rel="stylesheet"
@@ -40,7 +41,6 @@
               <div class="form-group">
                 <label
                   for="testSerialNumber"
-                  name="serialNumber"
                   class="font-weight-bold"
                   >Serial Number</label
                 >
@@ -62,7 +62,6 @@
               <div class="form-group">
                 <label
                   for="testProductKey"
-                  name="productKey"
                   class="font-weight-bold"
                   >Product Key</label
                 >
@@ -76,7 +75,7 @@
                 />
               </div>
               <div class="form-group">
-                <label for="testEmail" name="email" class="font-weight-bold"
+                <label for="testEmail" class="font-weight-bold"
                   >Primary Contact Email</label
                 >
                 <input
@@ -124,8 +123,8 @@
       
               <!-- Successful upgrade view -->
               <div class="col" id="upgrade" style="display: none;">
-                <div class="border border-dark p-4">
-                    <h3>You're eligible for a free upgrade.</h3>
+                <div class="border border-primary bg-lightblue opct opacity-50 p-4">
+                    <p class="largeFont">You're eligible for a free upgrade.</p>
                       <p>
                         Check to see if your device is <a href="">compatible</a> with this version.
                          Here's what will happen once you confirm your upgrade.
@@ -140,24 +139,27 @@
                       </p>
                       <button
                       type="submit"
-                      class="btn btn-success"
+                      class="btn btn-success mb-4"
                       id="successSubmit"
                       >
                       Sounds Great! Upgrade My License. 
                     </button>
                     <div class='upgrade-license-details'>
-                      <div class="border border-dark p-4">
-                          <p>YOUR LICENSE DETAILS <br/><strong>Bluebeam Revu 2018 eXtreme</strong></p>
-                            <ul>
-                              <li>Serial Number: XXX</li>
-                              <li>Product Key: XXX</li>
-                              <li>Registered Email: XXX</li>
-                              <li>Total Seats Available: XXX</li>
-                              <li>Total Seats Installed: XXX</li>
-                              <li>Total Seats Eligible for Upgrade: XXX</li>
-                              <li>Maintenance: XXX</li>
-                              <li>Expiration Date: XXX</li>
-                            </ul>
+                      <div class="border border-secondary bg-white p-4">
+                          <span class="textLicense">YOUR LICENSE DETAILS</span>
+                          <br/>
+                          <span class="textBluebeam"><strong>Bluebeam Revu 2018 eXtreme</strong></span>
+                          <br/>
+                            <div>
+                              <span class="listItems" id="serialNumberDataSuccess"></span><br/>
+                              <span class="listItems" id="productKeyDataSuccess"></span><br/>
+                              <span class="listItems" id="regesteredEmailDataSuccess"></span><br/>
+                              <span class="listItems" id="seatsAvailableDataSuccess"></span><br/>
+                              <span class="listItems" id="seatsInstalledDataSuccess"></span><br/>
+                              <span class="listItems" id="seatsEligibleDataSuccess"></span><br/>
+                              <span class="listItems" id="maintenanceDataSuccess"></span><br/>
+                              <span class="listItems" id="expirationDateDataSuccess"></span>
+                            </div>
                     </div>
               </div>
             </div>
@@ -177,14 +179,14 @@
                         <div class="border border-dark p-4">
                             <p>YOUR LICENSE DETAILS <br/><strong>Bluebeam Revu 2018 eXtreme</strong></p>
                               <ul>
-                                <li>Serial Number: XXX</li>
-                                <li>Product Key: XXX</li>
-                                <li>Registered Email: XXX</li>
-                                <li>Total Seats Available: XXX</li>
-                                <li>Total Seats Installed: XXX</li>
-                                <li>Total Seats Eligible for Upgrade: XXX</li>
-                                <li>Maintenance: XXX</li>
-                                <li>Expiration Date: XXX</li>
+                                <li class="listItems" id="serialNumberDataFailed"></li>
+                                <li class="listItems" id="productKeyDataFailed"></li>
+                                <li class="listItems" id="regesteredEmailDataFailed"></li>
+                                <li class="listItems" id="seatsAvailableDataFailed"></li>
+                                <li class="listItems" id="seatsInstalledDataFailed"></li>
+                                <li class="listItems" id="seatsEligibleDataFailed"></li>
+                                <li class="listItems" id="maintenanceDataFailed"></li>
+                                <li class="listItems" id="expirationDateDataFailed"></li>
                               </ul>
                         </div>
                     </div>
