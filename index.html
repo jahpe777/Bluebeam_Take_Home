@@ -123,8 +123,8 @@
       
               <!-- Successful upgrade view -->
               <div class="col" id="upgrade" style="display: none;">
-                <div class="border border-primary bg-lightblue opct opacity-50 p-4">
-                    <p class="largeFont">You're eligible for a free upgrade.</p>
+                <div class="border border-primary bg-lightblue p-4">
+                    <h3>You're eligible for a free upgrade.</h3>
                       <p>
                         Check to see if your device is <a href="">compatible</a> with this version.
                          Here's what will happen once you confirm your upgrade.
@@ -167,7 +167,7 @@
       
               <!-- Failed upgrade view -->
               <div class="col" id="noUpgrade" style="display: none;">
-                <div class="border border-dark p-4">
+                <div class="border border-danger bg-grey p-4">
                     <h3>Sorry, this license isn't eligible.</h3>
                     <p>
                         Bluebeam offers free upgrades to the latest verion of Revu for licenses with active Maintenance or for licenses that have been purchased within 30 days of a major release.
@@ -176,18 +176,21 @@
                       You can <a href="">purchase an upgrade</a> in our web store or by contacting your <a href="">reseller</a>. Feel free to <a href="">contact us</a> if you have any questions.
                     </p>
                     <div class='upgrade-license-details'>
-                        <div class="border border-dark p-4">
-                            <p>YOUR LICENSE DETAILS <br/><strong>Bluebeam Revu 2018 eXtreme</strong></p>
-                              <ul>
-                                <li class="listItems" id="serialNumberDataFailed"></li>
-                                <li class="listItems" id="productKeyDataFailed"></li>
-                                <li class="listItems" id="regesteredEmailDataFailed"></li>
-                                <li class="listItems" id="seatsAvailableDataFailed"></li>
-                                <li class="listItems" id="seatsInstalledDataFailed"></li>
-                                <li class="listItems" id="seatsEligibleDataFailed"></li>
-                                <li class="listItems" id="maintenanceDataFailed"></li>
-                                <li class="listItems" id="expirationDateDataFailed"></li>
-                              </ul>
+                        <div class="border border-secondary bg-white p-4">
+                          <span class="textLicense">YOUR LICENSE DETAILS</span>
+                          <br/>
+                          <span class="textBluebeam"><strong>Bluebeam Revu 2018 eXtreme</strong></span>
+                          <br/>
+                            <div>
+                              <span class="listItems" id="serialNumberDataFailed"></span><br/>
+                              <span class="listItems" id="productKeyDataFailed"></span><br/>
+                              <span class="listItems" id="regesteredEmailDataFailed"></span><br/>
+                              <span class="listItems" id="seatsAvailableDataFailed"></span><br/>
+                              <span class="listItems" id="seatsInstalledDataFailed"></span><br/>
+                              <span class="listItems" id="seatsEligibleDataFailed"></span><br/>
+                              <span class="listItems" id="maintenanceDataFailed"></span><br/>
+                              <span class="listItems" id="expirationDateDataFailed"></span>
+                            </div>
                         </div>
                     </div>
                   </div>

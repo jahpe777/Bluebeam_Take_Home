@@ -2,9 +2,8 @@
   background-color: rgb(238, 250, 255);
 }
 
-.largeFont {
-  font-size: 26px;
-  font-weight: 900;
+.bg-grey {
+  background-color: rgb(242, 242, 242);
 }
 
 .textLicense {
