@@ -19,3 +19,7 @@
   list-style: none;
   font-size: 12px;
 }
+
+.bg-solid-grey {
+  background-color: rgb(215, 215, 215);
+}

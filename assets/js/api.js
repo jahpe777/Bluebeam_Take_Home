@@ -34,6 +34,7 @@ function notFoundDisplay() {
   }
 }
 
+//run successful update for license details
 function successfulLicenseDetails(result) {
   document.getElementById(
     'serialNumberDataSuccess'
@@ -61,6 +62,7 @@ function successfulLicenseDetails(result) {
   ).innerHTML = `Expiration Date: ${result[0].dateRegistered}`;
 }
 
+//run failed update for license details
 function failedLicenseDetails(result) {
   document.getElementById(
     'serialNumberDataFailed'
@@ -92,6 +94,8 @@ function failedLicenseDetails(result) {
 //   return value.getMonth() + 1 + '/' + value.getDate() + '/' + value.getYear();
 // }
 
+//preform validation
+
 // verifying upgrade
 function login() {
   fetch(`http://www.mocky.io/v2/5dea8af93000001d442b09cd`, {
@@ -116,14 +120,10 @@ function login() {
         );
       });
       if (result.length && result[0].isUpgradeable === true) {
-        //upgrade display
         upgradeDisplay();
-        //update successful license details
         successfulLicenseDetails(result);
       } else if (result.length && result[0].isUpgradeable === false) {
-        //not upgrade display
         notUpgradeableDisplay();
-        //update failed license details
         failedLicenseDetails(result);
       } else {
         notFoundDisplay();
