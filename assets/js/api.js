@@ -1,3 +1,16 @@
+//run transition display
+function transitionDisplay() {
+  let initial = document.getElementById('initial');
+  let upgrade = document.getElementById('upgrade');
+  let notUpgradeable = document.getElementById('noUpgrade');
+  let notFound = document.getElementById('noLicense');
+
+  initial.style.display = 'none';
+  upgrade.style.display = 'none';
+  notUpgradeable.style.display = 'none';
+  notFound.style.display = 'none';
+}
+
 //run upgrade
 function upgradeDisplay() {
   let upgrade = document.getElementById('upgrade');
@@ -94,10 +107,48 @@ function failedLicenseDetails(result) {
 //   return value.getMonth() + 1 + '/' + value.getDate() + '/' + value.getYear();
 // }
 
-//preform validation
+//validate serial number
+function validateSerialNumber(value) {
+  let maxLength = 7;
+  return (
+    value.toString().length === maxLength && parseInt(Number(value)) == value
+  );
+}
+
+//validate product key
+function validateProductKey(value) {
+  return value.includes('-');
+}
+
+//validate email
+function validateEmail(value) {
+  let validEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return validEmail.test(String(value).toLowerCase());
+}
 
 // verifying upgrade
 function login() {
+  let serialNumberInput = document.getElementById('testSerialNumber').value;
+  let integer = parseInt(serialNumberInput, 10);
+
+  let productKeyInput = document.getElementById('testProductKey').value;
+  let emailInput = document.getElementById('testEmail').value;
+
+  if (!validateSerialNumber(integer)) {
+    alert('"Serial Number" is invalid');
+    return;
+  }
+  if (!validateProductKey(productKeyInput)) {
+    alert('"Product Key" is invalid');
+    return;
+  }
+  if (!validateEmail(emailInput)) {
+    alert('"Primary Contact Email" is invalid');
+    return;
+  }
+
+  transitionDisplay();
+
   fetch(`http://www.mocky.io/v2/5dea8af93000001d442b09cd`, {
     method: 'get',
     headers: {
@@ -106,11 +157,7 @@ function login() {
   })
     .then(res => res.json())
     .then(data => {
-      let serialNumberInput = document.getElementById('testSerialNumber').value;
-      let integer = parseInt(serialNumberInput, 10);
-
-      let productKeyInput = document.getElementById('testProductKey').value;
-      let emailInput = document.getElementById('testEmail').value;
+      let reset = document.getElementById('form').reset();
 
       let result = data.filter(item => {
         return (
@@ -128,6 +175,7 @@ function login() {
       } else {
         notFoundDisplay();
       }
+      reset;
     });
 }
 

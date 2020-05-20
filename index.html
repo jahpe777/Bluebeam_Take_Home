@@ -37,7 +37,7 @@
               license is eligible for a free upgrade to the latest version of
               Revu.
             </p>
-            <form>
+            <form id="form">
               <div class="form-group">
                 <label
                   for="testSerialNumber"
@@ -49,8 +49,7 @@
                   class="form-control"
                   id="testSerialNumber"
                   placeholder="Enter Serial Number"
-                  oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                  maxlength="7"
+                  onsubmit="validateSerialNumber(this.value)"
                   required
                 />
                 <small id="emailHelp" class="form-text text-muted"
@@ -70,7 +69,7 @@
                   class="form-control"
                   id="testProductKey"
                   placeholder="Enter Product Key"
-                  oninput="javascript: this.value.includes('-');"  
+                  onsubmit="validateProductKey(this.value)"
                   required
                 />
               </div>
@@ -83,7 +82,7 @@
                   class="form-control"
                   id="testEmail"
                   placeholder="Enter Primary Contact Email"
-                  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                  onsubmit="validateEmail(this.value)"
                   required
                 />
                 <small id="emailHelp" class="form-text text-muted"
