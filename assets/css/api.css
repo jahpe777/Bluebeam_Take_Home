@@ -6,6 +6,11 @@
   background-color: rgb(242, 242, 242);
 }
 
+.bluebeam {
+  transform: scale(1);
+  margin: 20px;
+}
+
 .textLicense {
   color: blue;
   font-size: 12px;
