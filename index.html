@@ -16,11 +16,15 @@
 
   <body>
     <header>
-        <nav class="navbar-expand-sm bg-solid-grey">
-          <div class="col">
-            <img class="bluebeam" src="https://www.bluebeam.com/user/pages/images/logos/logo-black.svg" alt="Bluebeam Logo">
-          </div>
-        </nav>
+      <nav class="navbar-expand-sm bg-solid-grey">
+        <div class="col">
+          <img
+            class="bluebeam"
+            src="https://www.bluebeam.com/user/pages/images/logos/logo-black.svg"
+            alt="Bluebeam Logo"
+          />
+        </div>
+      </nav>
     </header>
 
     <main>
@@ -33,15 +37,13 @@
         <div class="row">
           <div class="col-7">
             <p>
-              Enter your license information below and we’ll check to see if that
-              license is eligible for a free upgrade to the latest version of
-              Revu.
+              Enter your license information below and we’ll check to see if
+              that license is eligible for a free upgrade to the latest version
+              of Revu.
             </p>
             <form id="form">
               <div class="form-group">
-                <label
-                  for="testSerialNumber"
-                  class="font-weight-bold"
+                <label for="testSerialNumber" class="font-weight-bold"
                   >Serial Number</label
                 >
                 <input
@@ -52,16 +54,15 @@
                   onsubmit="validateSerialNumber(this.value)"
                   required
                 />
-                <small id="emailHelp" class="form-text text-muted"
+                <small id="serialNumberHelp" class="form-text text-muted"
                   >Upgrades for Open Licenses (serial numbers starting with
-                  96XXXXX) can be accessed in the Gateway. Once you log in, you'll
-                  automatically be issued a key for the latest version.</small
+                  96XXXXX) can be accessed in the Gateway. Once you log in,
+                  you'll automatically be issued a key for the latest
+                  version.</small
                 >
               </div>
               <div class="form-group">
-                <label
-                  for="testProductKey"
-                  class="font-weight-bold"
+                <label for="testProductKey" class="font-weight-bold"
                   >Product Key</label
                 >
                 <input
@@ -86,8 +87,9 @@
                   required
                 />
                 <small id="emailHelp" class="form-text text-muted"
-                  >Enter the email address that was used to buy your seat of Revu,
-                  which can be found in your license certificate email.</small
+                  >Enter the email address that was used to buy your seat of
+                  Revu, which can be found in your license certificate
+                  email.</small
                 >
               </div>
               <button
@@ -99,117 +101,143 @@
               </button>
             </form>
           </div>
-         
-              <!-- Initial upgrade view -->
-              <div class="col" id="initial" style="display: block;">
-                <div class="border border-dark p-4">
-                  <h3>Am I eligible for a free upgrade?</h3>
-                  <p>
-                    You're eligible for a free upgrade to the latest version of Revu
-                    if any of following applies:
-                  </p>
-                  <ul>
-                    <li>Your license has active Maintenance</li>
-                    <li>
-                      Your license was purchased within 30 days of a major release
-                    </li>
-                  </ul>
-                  <small class="text-muted"
-                    ><a href="">Contact us</a> if you have any questions.</small
-                  >
-                </div>
-              </div>
-      
-              <!-- Successful upgrade view -->
-              <div class="col" id="upgrade" style="display: none;">
-                <div class="border border-primary bg-lightblue p-4">
-                    <h3>You're eligible for a free upgrade.</h3>
-                      <p>
-                        Check to see if your device is <a href="">compatible</a> with this version.
-                         Here's what will happen once you confirm your upgrade.
-                      </p>
-                      <p>
-                        1. We'll create a new license with a unique serial number.
-                           This will be sent in a license certifictae email to <strong>bchung@bluebeam.com</strong>.</li>
-                      </p>
-                      <p>
-                         2. All <strong>25</strong> seats on license <strong>#1491322</strong> will be moved to the new serial number. Please install at your earliest convenience. Users can continue working in Revu until you install this new version. 
-                    
-                      </p>
-                      <button
-                      type="submit"
-                      class="btn btn-success mb-4"
-                      id="successSubmit"
-                      >
-                      Sounds Great! Upgrade My License. 
-                    </button>
-                    <div class='upgrade-license-details'>
-                      <div class="border border-secondary bg-white p-4">
-                          <span class="textLicense">YOUR LICENSE DETAILS</span>
-                          <br/>
-                          <span class="textBluebeam"><strong>Bluebeam Revu 2018 eXtreme</strong></span>
-                          <br/>
-                            <div>
-                              <span class="listItems" id="serialNumberDataSuccess"></span><br/>
-                              <span class="listItems" id="productKeyDataSuccess"></span><br/>
-                              <span class="listItems" id="regesteredEmailDataSuccess"></span><br/>
-                              <span class="listItems" id="seatsAvailableDataSuccess"></span><br/>
-                              <span class="listItems" id="seatsInstalledDataSuccess"></span><br/>
-                              <span class="listItems" id="seatsEligibleDataSuccess"></span><br/>
-                              <span class="listItems" id="maintenanceDataSuccess"></span><br/>
-                              <span class="listItems" id="expirationDateDataSuccess"></span>
-                            </div>
-                    </div>
-              </div>
+
+          <!-- Initial upgrade view -->
+          <div class="col" id="initial" style="display: block;">
+            <div class="border border-dark p-4">
+              <h3>Am I eligible for a free upgrade?</h3>
+              <p>
+                You're eligible for a free upgrade to the latest version of Revu
+                if any of following applies:
+              </p>
+              <ul>
+                <li>Your license has active Maintenance</li>
+                <li>
+                  Your license was purchased within 30 days of a major release
+                </li>
+              </ul>
+              <small class="text-muted"
+                ><a href="">Contact us</a> if you have any questions.</small
+              >
             </div>
           </div>
       
-              <!-- Failed upgrade view -->
-              <div class="col" id="noUpgrade" style="display: none;">
-                <div class="border border-danger bg-grey p-4">
-                    <h3>Sorry, this license isn't eligible.</h3>
-                    <p>
-                        Bluebeam offers free upgrades to the latest verion of Revu for licenses with active Maintenance or for licenses that have been purchased within 30 days of a major release.
-                    </p>
-                    <p>
-                      You can <a href="">purchase an upgrade</a> in our web store or by contacting your <a href="">reseller</a>. Feel free to <a href="">contact us</a> if you have any questions.
-                    </p>
-                    <div class='upgrade-license-details'>
-                        <div class="border border-secondary bg-white p-4">
-                          <span class="textLicense">YOUR LICENSE DETAILS</span>
-                          <br/>
-                          <span class="textBluebeam"><strong>Bluebeam Revu 2018 eXtreme</strong></span>
-                          <br/>
-                            <div>
-                              <span class="listItems" id="serialNumberDataFailed"></span><br/>
-                              <span class="listItems" id="productKeyDataFailed"></span><br/>
-                              <span class="listItems" id="regesteredEmailDataFailed"></span><br/>
-                              <span class="listItems" id="seatsAvailableDataFailed"></span><br/>
-                              <span class="listItems" id="seatsInstalledDataFailed"></span><br/>
-                              <span class="listItems" id="seatsEligibleDataFailed"></span><br/>
-                              <span class="listItems" id="maintenanceDataFailed"></span><br/>
-                              <span class="listItems" id="expirationDateDataFailed"></span>
-                            </div>
-                        </div>
-                    </div>
-                  </div>
+
+        <!-- Successful upgrade view -->
+        <div class="col" id="upgrade" style="display: none;">
+          <div class="border border-primary bg-lightblue p-4">
+            <h3>You're eligible for a free upgrade.</h3>
+            <p>
+              Check to see if your device is <a href="">compatible</a> with this
+              version. Here's what will happen once you confirm your upgrade.
+            </p>
+            <p>
+              1. We'll create a new license with a unique serial number. This
+              will be sent in a license certifictae email to
+              <strong>bchung@bluebeam.com</strong>.
+            </p>
+            <p>
+              2. All <strong>25</strong> seats on <strong>license
+              #1491322</strong> will be moved to the new serial number.
+              Please install at your earliest convenience. Users can continue
+              working in Revu until you install this new version.
+            </p>
+            <button
+              type="submit"
+              class="btn btn-success mb-4"
+              id="successSubmit"
+            >
+              Sounds Great! Upgrade My License.
+            </button>
+            <div class="upgrade-license-details">
+              <div class="border border-secondary bg-white p-4">
+                <span class="textLicense">YOUR LICENSE DETAILS</span>
+                <br />
+                <span class="textBluebeam"
+                  ><strong>Bluebeam Revu 2018 eXtreme</strong></span
+                >
+                <br />
+                <div>
+                  <span class="listItems" id="serialNumberDataSuccess"></span
+                  ><br />
+                  <span class="listItems" id="productKeyDataSuccess"></span
+                  ><br />
+                  <span class="listItems" id="regesteredEmailDataSuccess"></span
+                  ><br />
+                  <span class="listItems" id="seatsAvailableDataSuccess"></span
+                  ><br />
+                  <span class="listItems" id="seatsInstalledDataSuccess"></span
+                  ><br />
+                  <span class="listItems" id="seatsEligibleDataSuccess"></span
+                  ><br />
+                  <span class="listItems" id="maintenanceDataSuccess"></span
+                  ><br />
+                  <span class="listItems" id="expirationDateDataSuccess"></span>
                 </div>
-      
-              <!-- License not found view -->
-              <div class="col" id="noLicense" style="display: none;">
-                  <div class="border border-dark p-4">
-                      <h3>Sorry, this license can't be found.</h3>
-                      <p>
-                          Please check your credentials and enter a valid license. 
-                      </p>
-                      <small class="text-muted"
-                    ><a href="">Contact us</a> if you have any questions.</small
-                  >
-                  </div>
               </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Failed upgrade view -->
+        <div class="col" id="noUpgrade" style="display: none;">
+          <div class="border border-danger bg-grey p-4">
+            <h3>Sorry, this license isn't eligible.</h3>
+            <p>
+              Bluebeam offers free upgrades to the latest verion of Revu for
+              licenses with active Maintenance or for licenses that have been
+              purchased within 30 days of a major release.
+            </p>
+            <p>
+              You can <a href="">purchase an upgrade</a> in our web store or by
+              contacting your <a href="">reseller</a>. Feel free to
+              <a href="">contact us</a> if you have any questions.
+            </p>
+            <div class="upgrade-license-details">
+              <div class="border border-secondary bg-white p-4">
+                <span class="textLicense">YOUR LICENSE DETAILS</span>
+                <br />
+                <span class="textBluebeam"
+                  ><strong>Bluebeam Revu 2018 eXtreme</strong></span
+                >
+                <br />
+                <div>
+                  <span class="listItems" id="serialNumberDataFailed"></span
+                  ><br />
+                  <span class="listItems" id="productKeyDataFailed"></span
+                  ><br />
+                  <span class="listItems" id="regesteredEmailDataFailed"></span
+                  ><br />
+                  <span class="listItems" id="seatsAvailableDataFailed"></span
+                  ><br />
+                  <span class="listItems" id="seatsInstalledDataFailed"></span
+                  ><br />
+                  <span class="listItems" id="seatsEligibleDataFailed"></span
+                  ><br />
+                  <span class="listItems" id="maintenanceDataFailed"></span
+                  ><br />
+                  <span class="listItems" id="expirationDateDataFailed"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- License not found view -->
+        <div class="col" id="noLicense" style="display: none;">
+          <div class="border border-dark p-4">
+            <h3>Sorry, this license can't be found.</h3>
+            <p>
+              Please check your credentials and enter a valid license.
+            </p>
+            <small class="text-muted"
+              ><a href="">Contact us</a> if you have any questions.</small
+            >
+          </div>
+        </div>
       </div>
     </main>
-    
+
     <script src="assets/js/api.js"></script>
   </body>
 </html>

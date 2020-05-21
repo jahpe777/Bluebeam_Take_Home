@@ -67,12 +67,21 @@ function successfulLicenseDetails(result) {
   document.getElementById(
     'seatsEligibleDataSuccess'
   ).innerHTML = `Total Seats Eligible for Upgrade: ${result[0].totalSeatsEligible}`;
+  let maintenance = result[0].maintenance;
+  let maintenanceOutput = maintenance
+    ? 'Premium Maintenance'
+    : 'General Maintenance';
+
   document.getElementById(
     'maintenanceDataSuccess'
-  ).innerHTML = `Maintenance: ${result[0].maintenance}`;
+  ).innerHTML = `Maintenance: ${maintenanceOutput}`;
+  let initialDate = result[0].dateRegistered.split('T');
+  let finalDate = initialDate[0].split('-');
   document.getElementById(
     'expirationDateDataSuccess'
-  ).innerHTML = `Expiration Date: ${result[0].dateRegistered}`;
+  ).innerHTML = `Expiration Date: ${finalDate[1]}/${finalDate[2]}/${
+    finalDate[0]
+  }`;
 }
 
 //run failed update for license details
@@ -98,7 +107,7 @@ function failedLicenseDetails(result) {
   let maintenance = result[0].maintenance;
   let maintenanceOutput = maintenance
     ? 'Premium Maintenance'
-    : 'No Premium Maintenance';
+    : 'General Maintenance';
 
   document.getElementById(
     'maintenanceDataFailed'
@@ -158,7 +167,7 @@ function login() {
 
   transitionDisplay();
 
-  fetch(`http://www.mocky.io/v2/5dea8af93000001d442b09cd`, {
+  fetch(`https://www.mocky.io/v2/5dea8af93000001d442b09cd`, {
     method: 'get',
     headers: {
       'Content-Type': 'application/json'
