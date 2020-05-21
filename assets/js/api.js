@@ -121,10 +121,6 @@ function failedLicenseDetails(result) {
   }`;
 }
 
-function formatDate(value) {
-  return value.getMonth() + 1 + '/' + value.getDate() + '/' + value.getYear();
-}
-
 //validate serial number
 function validateSerialNumber(value) {
   let maxLength = 7;
