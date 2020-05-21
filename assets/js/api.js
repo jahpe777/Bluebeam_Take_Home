@@ -167,7 +167,7 @@ function login() {
 
   transitionDisplay();
 
-  fetch(`https://www.mocky.io/v2/5dea8af93000001d442b09cd`, {
+  fetch(`http://www.mocky.io/v2/5dea8af93000001d442b09cd`, {
     method: 'get',
     headers: {
       'Content-Type': 'application/json'
